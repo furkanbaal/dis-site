@@ -7,20 +7,8 @@ import { highlightedNavHref, siteConfig } from "@/lib/site-config";
 
 function BrandMark() {
   return (
-    <svg aria-hidden="true" viewBox="0 0 52 52" className="h-12 w-12 shrink-0">
-      <circle cx="26" cy="26" r="25" fill="#EAF8F1" />
-      <path
-        d="M18 12.5c-6.3 1.5-8.1 8-6.3 15.5l4.1 15.3c.9 3.4 4.4 3.6 6 0l2.8-7.1c.6-1.5 1.4-2.2 2.4-2.2s1.8.7 2.4 2.2l2.8 7.1c1.5 3.6 5.1 3.4 6 0l4.1-15.3c1.8-7.5 0-14-6.3-15.5-4.4-1-7.2 1.5-9 1.5s-4.6-2.5-9-1.5Z"
-        fill="white"
-        stroke="#17685F"
-        strokeWidth="2.8"
-        strokeLinejoin="round"
-      />
-      <circle cx="21.5" cy="24" r="1.6" fill="#203B40" />
-      <circle cx="30.5" cy="24" r="1.6" fill="#203B40" />
-      <path d="M22.5 29c2.1 2.4 5 2.4 7 0" fill="none" stroke="#ED917C" strokeWidth="2" strokeLinecap="round" />
-      <path d="m39 8 1.2 3.4 3.4 1.2-3.4 1.2-1.2 3.4-1.2-3.4-3.4-1.2 3.4-1.2L39 8Z" fill="#F3BD4E" />
-    </svg>
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src="/logo.png" alt="BalDent logo" className="h-12 w-12 shrink-0 rounded-xl object-contain" />
   );
 }
 

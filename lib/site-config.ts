@@ -16,9 +16,9 @@
  */
 
 /** Örnek (yer tutucu) bilgiler mi kullanılıyor? Yayında `false` olmalıdır. */
-export const isSampleData = true;
+export const isSampleData = false;
 
-const FALLBACK_URL = "https://minikdis.example.com";
+const FALLBACK_URL = "https://baldent.example.com";
 
 /** Geçersiz bir NEXT_PUBLIC_SITE_URL değeri derlemeyi bozmasın diye korumalı. */
 function resolveSiteUrl(): string {
@@ -47,15 +47,15 @@ export type OpeningHoursEntry = {
 
 export const siteConfig = {
   /** Kısa ad — başlıklarda ve marka işaretinde kullanılır. */
-  name: "Minik Diş",
+  name: "BalDent",
   /** Tam ticari/unvan adı — JSON-LD ve telif satırında kullanılır. */
-  legalName: "Minik Diş Çocuk Diş Kliniği",
+  legalName: "BalDent Çocuk Diş Kliniği",
   /** Marka işaretinin iki satırı (üst menü ve footer). */
-  brand: { line1: "MİNİK", line2: "DİŞ KLİNİĞİ" },
-  tagline: "Mutlu gülüşler burada başlıyor",
-  shortDescription: "Minik kahramanlar için sevgi dolu çocuk diş hekimliği.",
+  brand: { line1: "BAL", line2: "DENT" },
+  tagline: "Minik gülüşlere tatlı dokunuş",
+  shortDescription: "Gölcük'te çocuklara özel, sevgi dolu diş hekimliği.",
   description:
-    "Minik kahramanlar için sevgi dolu pedodonti. İlk diş ziyaretinden koruyucu bakıma, her adımda güvenli ve eğlenceli bir deneyim.",
+    "Kocaeli Gölcük'te minik kahramanlar için sevgi dolu pedodonti. İlk diş ziyaretinden koruyucu bakıma, her adımda güvenli ve eğlenceli bir deneyim.",
   url: resolveSiteUrl(),
   locale: "tr_TR",
   lang: "tr",
@@ -66,19 +66,22 @@ export const siteConfig = {
     "çocuklarda ağız sağlığı",
     "süt dişi tedavisi",
     "diş hekimi randevu",
+    "Gölcük çocuk diş hekimi",
+    "Kocaeli pedodontist",
+    "BalDent",
   ],
 
   contact: {
     /** Ekranda görünen biçim */
-    phoneDisplay: "+90 (216) 555 02 02",
+    phoneDisplay: "+90 (262) 555 00 41",
     /** `tel:` bağlantısı için E.164 biçimi (yalnızca + ve rakam) */
-    phoneHref: "+902165550202",
-    email: "merhaba@minikdis.example.com",
+    phoneHref: "+902625550041",
+    email: "merhaba@baldent.com.tr",
     address: {
-      street: "Bağdat Caddesi No: 123",
-      district: "Kadıköy",
-      city: "İstanbul",
-      postalCode: "34710",
+      street: "Mareşal Fevzi Çakmak Caddesi No: 42",
+      district: "Gölcük",
+      city: "Kocaeli",
+      postalCode: "41650",
       country: "TR",
     },
   },

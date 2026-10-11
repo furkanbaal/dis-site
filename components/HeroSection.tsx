@@ -20,7 +20,7 @@ export default function HeroSection() {
             <span className="grid h-6 w-6 place-items-center rounded-full bg-sunshine-100 text-amber-700">
               <Sparkles size={14} />
             </span>
-            Çocuklara özel, sevgi dolu bakım
+            Çocuklara özel, Gölcük'te sevgi dolu bakım
           </motion.div>
 
           <motion.h1
@@ -29,7 +29,7 @@ export default function HeroSection() {
             transition={{ duration: 0.68, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-[690px] text-balance font-rounded text-[clamp(2.7rem,6.1vw,5rem)] font-black leading-[0.98] tracking-[-0.065em] text-ink"
           >
-            Minik kahramanların <span className="relative inline-block text-mint-800">mutlu gülüşleri<span className="absolute -bottom-1 left-1 h-2 w-[94%] -rotate-2 rounded-full bg-sunshine-400/80" /></span> burada başlıyor!
+            Minik kahramanların <span className="relative inline-block text-mint-800">tatlı gülüşleri<span className="absolute -bottom-1 left-1 h-2 w-[94%] -rotate-2 rounded-full bg-sunshine-400/80" /></span> BalDent'te başlıyor!
           </motion.h1>
 
           <motion.p

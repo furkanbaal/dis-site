@@ -16,12 +16,9 @@ export default function SiteFooter() {
         <div className="grid gap-10 border-b border-white/10 pb-10 md:grid-cols-[1.35fr_0.8fr_1fr] md:gap-12">
           <div>
             <a href="#anasayfa" className="inline-flex items-center gap-3" aria-label={`${siteConfig.name} ana sayfa`}>
-              <span className="grid h-12 w-12 place-items-center rounded-[17px] bg-white text-mint-800">
-                <svg aria-hidden="true" viewBox="0 0 40 40" className="h-8 w-8">
-                  <path d="M13 7c-5 1-7 6-5 12l3 12c1 3 3 3 5 0l3-7c1-2 2-2 3 0l3 7c2 3 4 3 5 0l3-12c2-6 0-11-5-12-4-1-6 1-9 1s-4-2-9-1Z" fill="#fff" stroke="#17685f" strokeWidth="2.5" strokeLinejoin="round" />
-                  <circle cx="15" cy="17" r="1.5" fill="#203b40" /><circle cx="25" cy="17" r="1.5" fill="#203b40" />
-                  <path d="M16 22c2 3 6 3 8 0" fill="none" stroke="#ed917c" strokeWidth="2" strokeLinecap="round" />
-                </svg>
+              <span className="grid h-12 w-12 place-items-center overflow-hidden rounded-[17px] bg-white">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/logo.png" alt="BalDent" className="h-10 w-10 object-contain" />
               </span>
               <span className="leading-[0.92]"><span className="block text-[18px] font-black tracking-[0.1em]">{siteConfig.brand.line1}</span><span className="mt-1 block text-[10px] font-extrabold tracking-[0.22em] text-mint-300">{siteConfig.brand.line2}</span></span>
             </a>
