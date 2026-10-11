@@ -17,34 +17,14 @@ type Doctor = {
 
 const doctors: Doctor[] = [
   {
-    name: "Uzm. Dt. Deniz Aydın",
+    name: "Uzm. Dt. Zeynep Kartal",
     title: "Pedodontist",
-    focus: "İlk ziyaretler & koruyucu bakım",
-    description: "Miniklerin sorularını sabırla dinler; her yeni adımı birlikte keşfeder.",
-    palette: "#e3f5eb",
-    hair: "#4b3730",
-    scrubs: "#6db99c",
-    variant: 0,
-  },
-  {
-    name: "Uzm. Dt. Ece Demir",
-    title: "Pedodontist",
-    focus: "Çocuk psikolojisi & tedavi",
-    description: "Oyunla iletişimi ve sakin anlatımıyla güvenli bir tedavi deneyimi kurar.",
-    palette: "#e8f3ff",
-    hair: "#6b4735",
-    scrubs: "#75b4e2",
-    variant: 1,
-  },
-  {
-    name: "Uzm. Dt. Mert Kaya",
-    title: "Pedodontist",
-    focus: "Koruyucu uygulamalar",
-    description: "Sağlıklı alışkanlıkları ailece sürdürülebilir hale getirmeye odaklanır.",
+    focus: "Çocuk diş hekimliği & koruyucu bakım",
+    description: "Minik hastalarına sıcak yaklaşımı ve sabırlı iletişimiyle her ziyaretin keyifli geçmesini sağlar. İlk diş muayenesinden koruyucu bakıma kadar her adımda ailenizin yanında.",
     palette: "#fff0e9",
-    hair: "#3e3533",
+    hair: "#3e2a1f",
     scrubs: "#ee9a83",
-    variant: 2,
+    variant: 0,
   },
 ];
 
@@ -90,7 +70,7 @@ export default function TeamSection() {
           description="Güler yüzlü iletişim, çocuk psikolojisine duyarlı yaklaşım ve aileyle kurulan güvenli iş birliği."
         />
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
+        <div className="mt-12 grid gap-5 md:grid-cols-1 md:max-w-md md:mx-auto">
           {doctors.map((doctor, index) => (
             <motion.article
               key={doctor.name}
@@ -124,7 +104,7 @@ export default function TeamSection() {
             </motion.article>
           ))}
         </div>
-        <p className="mt-6 text-center text-[11px] font-semibold text-muted">Hekim profilleri örnek içeriktir; yayına alınmadan önce kliniğin gerçek ekip bilgileriyle güncellenmelidir.</p>
+        <p className="mt-6 text-center text-[11px] font-semibold text-muted">BalDent Ailesi — Gölcük'te minik gülüşlerin yanında.</p>
       </div>
     </section>
   );
