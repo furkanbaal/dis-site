@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, Heart, Sparkles, Star } from "lucide-react";
-import ToothMascot from "@/components/ToothMascot";
 
 export default function HeroSection() {
   return (
@@ -85,47 +85,53 @@ export default function HeroSection() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.94, y: 16 }}
+          initial={{ opacity: 0, scale: 0.96, y: 16 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mx-auto flex w-full max-w-[540px] items-center justify-center lg:mr-[-12px]"
+          className="relative mx-auto w-full max-w-[550px] lg:mr-[-12px]"
         >
+          <div className="absolute -inset-4 rounded-[38px] border border-white/70 bg-white/25 shadow-soft" />
           <motion.div
-            animate={{ y: [0, -9, 0], rotate: [0, 1, 0] }}
-            transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-            className="relative aspect-square w-full max-w-[490px]"
+            animate={{ y: [0, -5, 0], rotate: [0, 0.25, 0] }}
+            transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
+            className="relative"
           >
-            <div className="absolute inset-[4%] rounded-[44%_56%_48%_52%/47%_44%_56%_53%] bg-white/65" />
-            <div className="absolute inset-[9%] rounded-[44%_56%_48%_52%/47%_44%_56%_53%] border border-white/90" />
-            <div className="absolute inset-[12%] rounded-full bg-mint-100/40" />
-            <div className="absolute inset-[2%] z-10"><ToothMascot /></div>
+            <Image
+              src="/baldent-main.svg"
+              alt="BalDent Çocuk Diş Kliniği: gülümseyen bir diş maskotuna sarılan sevimli arı illüstrasyonu"
+              width={800}
+              height={450}
+              priority
+              sizes="(max-width: 1024px) 90vw, 45vw"
+              className="relative z-10 h-auto w-full rounded-[30px] shadow-[0_22px_65px_rgba(39,78,74,0.12)]"
+            />
+          </motion.div>
 
-            <motion.div
-              animate={{ y: [0, -7, 0], rotate: [0, 4, 0] }}
-              transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute left-[1%] top-[23%] z-20 flex items-center gap-2 rounded-2xl bg-white px-3.5 py-3 shadow-card sm:left-[-3%] sm:px-4"
-            >
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-sunshine-100 text-amber-700"><Heart size={20} fill="currentColor" /></span>
-              <span><b className="block text-xs font-black text-ink">Kocaman sevgi</b><small className="mt-0.5 block text-[10px] font-bold text-muted">Her minik kahramana</small></span>
-            </motion.div>
+          <motion.div
+            animate={{ y: [0, -7, 0], rotate: [0, 3, 0] }}
+            transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -left-4 top-[28%] z-20 hidden items-center gap-2 rounded-2xl bg-white px-3 py-2.5 shadow-card sm:-left-7 sm:flex sm:px-4 sm:py-3"
+          >
+            <span className="grid h-9 w-9 place-items-center rounded-xl bg-sunshine-100 text-amber-700"><Heart size={18} fill="currentColor" /></span>
+            <span><b className="block text-[11px] font-black text-ink">Kocaman sevgi</b><small className="mt-0.5 block text-[9px] font-bold text-muted">Her minik kahramana</small></span>
+          </motion.div>
 
-            <motion.div
-              animate={{ y: [0, 7, 0], rotate: [0, -3, 0] }}
-              transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-              className="absolute bottom-[14%] right-[-2%] z-20 flex items-center gap-2.5 rounded-2xl bg-white px-3.5 py-3 shadow-card sm:right-[-4%] sm:px-4"
-            >
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-mint-100 text-mint-800"><Check size={20} strokeWidth={3} /></span>
-              <span><b className="block text-xs font-black text-ink">Önce tanışıyoruz</b><small className="mt-0.5 block text-[10px] font-bold text-muted">Rahat, acele etmeden</small></span>
-            </motion.div>
+          <motion.div
+            animate={{ y: [0, 7, 0], rotate: [0, -3, 0] }}
+            transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+            className="absolute -bottom-4 right-1 z-20 hidden items-center gap-2 rounded-2xl bg-white px-3 py-2.5 shadow-card sm:-bottom-5 sm:right-3 sm:flex sm:px-4 sm:py-3"
+          >
+            <span className="grid h-9 w-9 place-items-center rounded-xl bg-mint-100 text-mint-800"><Check size={18} strokeWidth={3} /></span>
+            <span><b className="block text-[11px] font-black text-ink">Önce tanışıyoruz</b><small className="mt-0.5 block text-[9px] font-bold text-muted">Rahat, acele etmeden</small></span>
+          </motion.div>
 
-            <motion.div
-              animate={{ rotate: [0, 12, 0], scale: [1, 1.08, 1] }}
-              transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute right-[8%] top-[9%] z-20 grid h-12 w-12 place-items-center rounded-2xl bg-sunshine-400 text-white shadow-soft"
-              aria-hidden="true"
-            >
-              <Sparkles size={23} fill="currentColor" />
-            </motion.div>
+          <motion.div
+            animate={{ rotate: [0, 12, 0], scale: [1, 1.08, 1] }}
+            transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -right-2 -top-5 z-20 grid h-11 w-11 place-items-center rounded-2xl bg-sunshine-400 text-white shadow-soft sm:-right-4 sm:-top-6"
+            aria-hidden="true"
+          >
+            <Sparkles size={21} fill="currentColor" />
           </motion.div>
         </motion.div>
       </div>

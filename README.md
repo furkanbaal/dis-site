@@ -1,6 +1,6 @@
-# Minik Diş — Çocuk Diş Kliniği
+# BalDent — Çocuk Diş Kliniği
 
-Pastel renkler, yumuşak mikro animasyonlar ve çocuk dostu bir randevu akışıyla hazırlanmış pedodonti kliniği ana sayfası.
+BalDent için pastel renkler, özel arı-diş maskotu, yumuşak mikro animasyonlar ve çocuk dostu bir randevu akışıyla hazırlanmış pedodonti kliniği ana sayfası.
 
 ## Teknoloji
 
