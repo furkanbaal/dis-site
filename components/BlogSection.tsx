@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Baby, BookOpen, ChevronRight, Heart, Sparkles, X, type LucideIcon } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
@@ -57,20 +57,54 @@ const articles: Article[] = [
   },
 ];
 
+/** Klavye odağının içeride kalmasını sağlayan seçici. */
+const FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
 export default function BlogSection() {
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!selectedArticle) return;
+
     const previousOverflow = document.body.style.overflow;
+    // Pencere kapandığında odağı geri vereceğimiz öğe (açan buton).
+    const previouslyFocused = document.activeElement as HTMLElement | null;
     document.body.style.overflow = "hidden";
+
+    const dialog = dialogRef.current;
+    dialog?.focus();
+
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setSelectedArticle(null);
+      if (event.key === "Escape") {
+        setSelectedArticle(null);
+        return;
+      }
+      if (event.key !== "Tab" || !dialog) return;
+
+      // Odak tuzağı: Tab, pencere içindeki öğeler arasında döner.
+      const focusable = Array.from(dialog.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR));
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement;
+
+      if (event.shiftKey && (active === first || active === dialog)) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
+
     window.addEventListener("keydown", onKeyDown);
     return () => {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", onKeyDown);
+      previouslyFocused?.focus?.();
     };
   }, [selectedArticle]);
 
@@ -132,6 +166,8 @@ export default function BlogSection() {
             className="fixed inset-0 z-[70] grid place-items-center overflow-y-auto bg-ink/45 p-4 backdrop-blur-sm"
           >
             <motion.article
+              ref={dialogRef}
+              tabIndex={-1}
               initial={{ opacity: 0, y: 18, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 12, scale: 0.98 }}
@@ -139,7 +175,7 @@ export default function BlogSection() {
               role="dialog"
               aria-modal="true"
               aria-labelledby="article-dialog-title"
-              className="relative my-8 max-h-[min(85vh,760px)] w-full max-w-[620px] overflow-y-auto rounded-[30px] bg-white p-6 shadow-float sm:p-9"
+              className="relative my-8 max-h-[min(85vh,760px)] w-full max-w-[620px] overflow-y-auto rounded-[30px] bg-white p-6 shadow-float outline-none sm:p-9"
             >
               <button type="button" onClick={() => setSelectedArticle(null)} aria-label="Yazıyı kapat" className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-mint-50 text-ink transition hover:bg-mint-100"><X size={18} /></button>
               <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-mint-100 px-3 py-2 text-[10px] font-black uppercase tracking-[0.1em] text-mint-800"><BookOpen size={14} /> {selectedArticle.category} · {selectedArticle.readTime}</div>
